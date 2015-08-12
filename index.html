@@ -162,5 +162,213 @@ plot.call(chart, {
 });
 
 </script>	
+
+
+<h2>Installation Count for All States</h2>
+<div id="installation-count"></div>
+<h2>Total Solar Capacity for All States</h2>
+<div id="installation-capacity"></div>
+<h2>Average Installation Cost for All States</h2>
+<div id="installation-cost"></div>
+
+<script type="text/javascript">
+  var w=900;
+  var h=500;
+  function count() {
+    
+  
+  var projection = d3.geo.albersUsa()
+                         .translate([w/2,h/2])
+                         .scale([500]);
+
+  var path = d3.geo.path();
+
+
+  var svg = d3.select("#installation-count")
+        .append("svg")
+        .attr({
+          width: w, 
+          height: h
+        });
+
+  var color = d3.scale.linear()
+          .range(['rgb(255,247,236)','rgb(254,232,200)','rgb(253,212,158)','rgb(253,187,132)','rgb(252,141,89)','rgb(239,101,72)','rgb(215,48,31)','rgb(179,0,0)','rgb(127,0,0)']); 
+
+  d3.tsv("state-installations.tsv", function(data){
+      color.domain([
+        0, d3.max(data, function(d){ return d.count; })
+        ]);
+
+          
+
+      d3.json("us.json", function(json){
+        for (i=0; i< data.length; i++) {
+          var salesState = data[i].state;
+          var salesVal = parseFloat(data[i].count);
+          for (var j=0; j<json.features.length;j++) {
+            var usState = json.features[j].properties.STUSPS;
+
+            if(salesState == usState) {
+              json.features[j].properties.value = salesVal;
+              break;
+            }
+          }
+        }
+        svg.selectAll("path")
+          .data(json.features)
+          .enter()
+          .append("path")
+          .attr("d", path)
+          .attr("fill", function(d){
+            var value = d.properties.value;
+
+            if (value) {
+
+              return color(value);
+
+            } else {
+
+              return "#000";
+
+            }
+          })
+      });
+
+  });   
+    }
+
+
+      function cost() {
+    
+  
+  var projection = d3.geo.albersUsa()
+                         .translate([w/2,h/2])
+                         .scale([500]);
+
+  var path = d3.geo.path();
+
+
+  var svg = d3.select("#installation-cost")
+        .append("svg")
+        .attr({
+          width: w, 
+          height: h
+        });
+
+  var color = d3.scale.linear()
+          .range(['rgb(255,247,236)','rgb(254,232,200)','rgb(253,212,158)','rgb(253,187,132)','rgb(252,141,89)','rgb(239,101,72)','rgb(215,48,31)','rgb(179,0,0)','rgb(127,0,0)']); 
+
+  d3.tsv("state-installations.tsv", function(data){
+      color.domain([
+        0, d3.max(data, function(d){ return d.cost; })
+        ]);
+
+          
+
+      d3.json("us.json", function(json){
+        for (i=0; i< data.length; i++) {
+          var salesState = data[i].state;
+          var salesVal = parseFloat(data[i].cost);
+          for (var j=0; j<json.features.length;j++) {
+            var usState = json.features[j].properties.STUSPS;
+
+            if(salesState == usState) {
+              json.features[j].properties.value = salesVal;
+              break;
+            }
+          }
+        }
+        svg.selectAll("path")
+          .data(json.features)
+          .enter()
+          .append("path")
+          .attr("d", path)
+          .attr("fill", function(d){
+            var value = d.properties.value;
+
+            if (value) {
+
+              return color(value);
+
+            } else {
+
+              return "#000";
+
+            }
+          })
+      });
+
+  });   
+    }
+
+      function capacity() {
+    
+  
+  var projection = d3.geo.albersUsa()
+                         .translate([w/2,h/2])
+                         .scale([500]);
+
+  var path = d3.geo.path();
+
+
+  var svg = d3.select("#installation-capacity")
+        .append("svg")
+        .attr({
+          width: w, 
+          height: h
+        });
+
+  var color = d3.scale.linear()
+          .range(['rgb(255,247,236)','rgb(254,232,200)','rgb(253,212,158)','rgb(253,187,132)','rgb(252,141,89)','rgb(239,101,72)','rgb(215,48,31)','rgb(179,0,0)','rgb(127,0,0)']); 
+
+  d3.tsv("state-installations.tsv", function(data){
+      color.domain([
+        0, d3.max(data, function(d){ return d.capacity; })
+        ]);
+
+          
+
+      d3.json("us.json", function(json){
+        for (i=0; i< data.length; i++) {
+          var salesState = data[i].state;
+          var salesVal = parseFloat(data[i].capacity);
+          for (var j=0; j<json.features.length;j++) {
+            var usState = json.features[j].properties.STUSPS;
+
+            if(salesState == usState) {
+              json.features[j].properties.value = salesVal;
+              break;
+            }
+          }
+        }
+        svg.selectAll("path")
+          .data(json.features)
+          .enter()
+          .append("path")
+          .attr("d", path)
+          .attr("fill", function(d){
+            var value = d.properties.value;
+
+            if (value) {
+
+              return color(value);
+
+            } else {
+
+              return "#000";
+
+            }
+          })
+      });
+
+  });   
+    }
+
+    capacity();
+    cost();
+    count();
+    
+</script>
+
 </body>
 </html>
