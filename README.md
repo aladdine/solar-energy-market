@@ -2,7 +2,7 @@
 
 This dashboard visualizes the current state of the solar energy industry in the United States
 
-References:
+# References:
 
 1- List of photovoltaic power stations: https://en.wikipedia.org/wiki/List_of_photovoltaic_power_stations
 
