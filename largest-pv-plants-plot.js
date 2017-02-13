@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Solar Energy Market Dashboard - 2017</title>
-	<link rel="stylesheet" href="main.css">
-	<script type="text/javascript" src="./d3.min.js"></script>
-	<script type="text/javascript" src="./largest-pv-plants-plot.js"></script>
-</head>
-<body>	
-<script>
 // div dimensions
 var w = 1000;
 var h = 600;
@@ -27,17 +16,17 @@ var title = "10 largest solar energy power plants in the world (2016)";
 
 // project data
 var data = [
-  { name: "Longyangxia Dam Solar Park", country: "China",  size: 850, year: 2015},
-  { name: "Kamuthi Solar Power Project", country: "United States",  size: 648, year: 2015},
-  { name: "Solar Star (I and II)", country: "United States",  size: 579, year: 2015},
-  { name: "Topaz Solar Farm", country: "United States",  size: 550, year: 2014},	
-  { name: "Desert Sunlight Solar Farm", country:	"United States",  size: 550, year: 2015},
-  { name: "Copper Mountain Solar Facility", country: "United States",  size: 458, year: 2015},	
-  { name: "California Valley Solar Ranch", country:	"United States",  size: 292, year: 2013},
-  { name: "Agua Caliente Solar Project", country: "United States",  size: 290, year: 2014},	
-  { name: "Mount Signal Solar", country: "United States",  size: 266, year: 2014},
-  { name: "Charanka Solar Park", country: "India",  size: 224, year: 2012},	
-  { name: "Mesquite Solar project", country: "United States",  size: 207, year: 2013}
+{ name: "Longyangxia Dam Solar Park", country: "China",  size: 850, year: 2015},
+{ name: "Kamuthi Solar Power Project", country: "United States",  size: 648, year: 2015},
+{ name: "Solar Star (I and II)", country: "United States",  size: 579, year: 2015},
+{ name: "Topaz Solar Farm", country: "United States",  size: 550, year: 2014},	
+{ name: "Desert Sunlight Solar Farm", country:	"United States",  size: 550, year: 2015},
+{ name: "Copper Mountain Solar Facility", country: "United States",  size: 458, year: 2015},	
+{ name: "California Valley Solar Ranch", country:	"United States",  size: 292, year: 2013},
+{ name: "Agua Caliente Solar Project", country: "United States",  size: 290, year: 2014},	
+{ name: "Mount Signal Solar", country: "United States",  size: 266, year: 2014},
+{ name: "Charanka Solar Park", country: "India",  size: 224, year: 2012},	
+{ name: "Mesquite Solar project", country: "United States",  size: 207, year: 2013}
 ];
 
 // call d3 function
@@ -166,7 +155,3 @@ this.selectAll(".bar-label")
 plot.call(chart, {
 	data: data
 });
-
-</script>
-</body>
-</html>
