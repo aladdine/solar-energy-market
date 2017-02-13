@@ -16,11 +16,12 @@ var title = "10 largest solar energy power plants in the world (2016)";
 
 // project data
 var data = [
+{ name: "Longyangxia Dam Solar Park", country: "China",  size: 850, year: 2015},
+{ name: "Kamuthi Solar Power Project", country: "United States",  size: 648, year: 2015},
 { name: "Solar Star (I and II)", country: "United States",  size: 579, year: 2015},
 { name: "Topaz Solar Farm", country: "United States",  size: 550, year: 2014},	
 { name: "Desert Sunlight Solar Farm", country:	"United States",  size: 550, year: 2015},
 { name: "Copper Mountain Solar Facility", country: "United States",  size: 458, year: 2015},	
-{ name: "Longyangxia Dam Solar Park", country: "China",  size: 320, year: 2013},	
 { name: "California Valley Solar Ranch", country:	"United States",  size: 292, year: 2013},
 { name: "Agua Caliente Solar Project", country: "United States",  size: 290, year: 2014},	
 { name: "Mount Signal Solar", country: "United States",  size: 266, year: 2014},
