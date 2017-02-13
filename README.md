@@ -1,6 +1,6 @@
 # US Solar Energy Market
 
-This dashboard visualizes the current state of the solar energy industry in the United States
+This dashboard visualizes the current state of the solar energy industry.
 
 # References:
 
